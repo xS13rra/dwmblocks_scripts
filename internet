@@ -1,0 +1,8 @@
+#!/bin/bash
+
+case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
+	down) wifi="乂" ;;
+	up) wifi="$(awk '/^\s*w/ { print int($3 * 100 / 70)"仌" }' /proc/net/wireless)" ;;
+esac
+
+printf "ᯤ %s, Eth:%s%s]" "$wifi" "$(sed "s/down/乂/;s/up/仌/" /sys/class/net/e*/operstate)" "$(sed "s/.*/ ㊉/" /sys/class/net/tun*/operstate 2>/dev/null)"

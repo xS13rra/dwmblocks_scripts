@@ -1,0 +1,4 @@
+#!/bin/bash
+
+s="$(sensors | awk '/Tdie:/ {print $2}' | sed -e 's/+//' -e 's/C//')"
+echo -e "CPU:$s"

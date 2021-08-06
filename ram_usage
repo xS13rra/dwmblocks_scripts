@@ -1,0 +1,4 @@
+#! /bin/bash 
+
+mem="$(free -h | awk '/^Mem:/ {print $3 "/" $2"G"}' | sed 's/Gi//g')"
+echo -e "MEM:$mem"
